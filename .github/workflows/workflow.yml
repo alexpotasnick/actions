@@ -1,0 +1,16 @@
+name: Deploy to Azure Devops
+
+on:
+  [push,pull_request]
+  
+jobs:
+  deploy:
+    name: Call Azure Pipeline
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure Pipelins Actions
+      uses: Azure/pipelines@v1
+      with:
+        azure-devops-project-url: https://dev.azure.com/clouduserp79d4d4f2/MyFirstProject
+        azure-pipeline-name: 'alexpotasnick.actions'
+        azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
